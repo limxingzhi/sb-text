@@ -22,7 +22,7 @@
     </header>
 
     <main role="main" class="inner cover" id="app">
-      <h4 class="cover-heading" id="character-name"><input v-model="stringText" v-on:keyup.enter="copyName" v-on:keydown.enter="convertText" placeholder="iNpUt TeXt HeRe"></h4>
+      <input v-model="stringText" v-on:keyup.enter="copyName" v-on:keydown.enter="convertText" placeholder="iNpUt TeXt HeRe" id="stringInput">
       <p class="lead">
         <button id="convert-btn" v-on:click="convertText" class="btn btn-lg btn-primary disabled">Change</button>
       </p>

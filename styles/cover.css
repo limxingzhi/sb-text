@@ -33,6 +33,10 @@ body {
   background-size: contain;
 }
 
+#stringInput {
+  margin: 1em 0;
+}
+
 body {
   display: -ms-flexbox;
   display: -webkit-box;

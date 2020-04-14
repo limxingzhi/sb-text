@@ -10,6 +10,7 @@ var app = new Vue({
   methods: {
     convertText: function () {
       this.stringText = spongebobConvert(this.stringText)
+      this.copyName();
     },
     copyName: function () {
       copyText(this.stringText);
@@ -39,13 +40,17 @@ function enableButton() {
   convertBtn.classList.remove('disabled');
 }
 
-
 function loadBackground() {
-  document.body.style.backgroundImage = "url('assets/pexels-unicorn-dog.jpg')";
+  document.body.style.backgroundImage = "url('assets/pexels-dog-dark.jpg')";
+}
+
+function focusInput() {
+  document.getElementById('stringInput').focus();
 }
 
 (() => {
   enableButton();
+  focusInput();
   loadBackground();
 }).bind(this)();
 

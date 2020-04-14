@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <title>sPoNgEbOb TeXt</title>
+</head>
+<body class="text-center">
+
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto title-container">
+      <div class="inner">
+        <h5 class="masthead-brand">sPoNgEbOb TeXt</h5>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" target="_blank" href="https://github.com/limxingzhi/sb-text">Source code</a>
+        </nav>
+      </div>
+    </header>
+
+    <main role="main" class="inner cover" id="app">
+      <h4 class="cover-heading" id="character-name"><input v-model="stringText" v-on:keyup.enter="copyName" v-on:keydown.enter="convertText" placeholder="iNpUt TeXt HeRe"></h4>
+      <p class="lead">
+        <button id="convert-btn" v-on:click="convertText" class="btn btn-lg btn-primary disabled">Change</button>
+      </p>
+      <p class="lead">
+        <button id="copy-btn" v-on:click="copyName" class="btn btn-sm btn-secondary">{{ copyBtnText }}</button>
+      </p>
+      <p class="text-sm">Please use this spongebob text converter for memes only.<br />tHe TeXt WiLl Be CoPiEd WhEn YoU fInIsH tYpInG aNd PrEsS eNtEr</p>
+
+    </main>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Made with Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p><p class="disclaimer-text">I know, some parts of this code is cancer, don't judge me too hard, I only spent 40 minutes on this.<br /><br /><a href="https://www.pexels.com/@mark-glancy-721708?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Photo by mark glancy</a></strong> from <strong><a href="https://www.pexels.com/photo/boston-terrier-wearing-unicorn-pet-costume-1564506/?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Pexels</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <input type="text" id="hidden-input" style="display: block; position:fixed;opacity: 0;">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./styles/bootstrap-min-4-0-0.css">
+  <link rel="stylesheet" href="./styles/cover.css">
+
+  <script src="./app.js"></script>
+
+</body>
+</html>

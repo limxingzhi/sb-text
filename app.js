@@ -5,22 +5,31 @@ var app = new Vue({
   el: '#app',
   data: {
     stringText: '',
-    copyBtnText: 'Copy'
+    copyBtnText: 'Copy',
+    mode: 'sb-mode',
   },
   methods: {
     convertText: function () {
-      this.stringText = spongebobConvert(this.stringText)
+      switch (this.mode) {
+        case 'slow-mode':
+          this.stringText = slowConvert(this.stringText);
+          break;
+        case 'sb-mode':
+        default:
+          this.stringText = spongebobConvert(this.stringText);
+          break;
+      }
       this.copyName();
     },
     copyName: function () {
       copyText(this.stringText);
       this.copyBtnText = 'Copied';
-      setTimeout(()=>{this.copyBtnText = "Copy";}, 1000);
+      setTimeout(() => { this.copyBtnText = "Copy"; }, 1000);
     }
   }
 });
 
-function spongebobConvert (stringInput) {
+function spongebobConvert(stringInput) {
   var stringOutput = '';
   caps = false;
 
@@ -33,6 +42,36 @@ function spongebobConvert (stringInput) {
     }
   }
   return stringOutput;
+}
+
+function slowConvert(stringInput) {
+  const realSpaceIdentifier = '8eQs4GC0TPWoxacYZgYo';
+  return stringInput
+    .replaceAll(' . ', '...' + realSpaceIdentifier)
+    .replaceAll('. ', '...' + realSpaceIdentifier)
+    .replaceAll(' .', '...')
+    .replaceAll('.', '...')
+
+    .replaceAll(' , ', '...' + realSpaceIdentifier)
+    .replaceAll(', ', '...' + realSpaceIdentifier)
+    .replaceAll(' ,', '...')
+    .replaceAll(',', '...')
+
+    .replaceAll(' ? ', '...' + realSpaceIdentifier)
+    .replaceAll('? ', '...' + realSpaceIdentifier)
+    .replaceAll(' ?', '...')
+    .replaceAll('?', '...')
+
+    .replaceAll(' ! ', '...' + realSpaceIdentifier)
+    .replaceAll('! ', '...' + realSpaceIdentifier)
+    .replaceAll(' !', '...')
+    .replaceAll('!', '...')
+
+    .replaceAll(' ', ' . ')
+
+    .replaceAll(realSpaceIdentifier, ' ')
+
+    .toLowerCase();
 }
 
 function enableButton() {
@@ -58,13 +97,13 @@ function focusInput() {
 /* utils */
 
 // return random value from array
-function randomWord (arrayInput) {
+function randomWord(arrayInput) {
   const word = arrayInput[Math.floor(Math.random() * arrayInput.length)]
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 // copy input text to clipboard
-function copyText (textInput) {
+function copyText(textInput) {
   const hiddenInput = document.getElementById("hidden-input");
   hiddenInput.value = textInput;
   hiddenInput.select();

@@ -22,6 +22,11 @@
     </header>
 
     <main role="main" class="inner cover" id="app">
+      <input type="radio" v-model="mode" id="sb-mode" value="sb-mode" />
+      <label for="sb-mode">sPoNgEbOb MoDe</label>
+      <input type="radio" v-model="mode" id="slow-mode" value="slow-mode" />
+      <label for="slow-mode">slow. mode.</label>
+      <br />
       <input v-model="stringText" v-on:keyup.enter="copyName" v-on:keydown.enter="convertText" placeholder="iNpUt TeXt HeRe" id="stringInput">
       <p class="lead">
         <button id="convert-btn" v-on:click="convertText" class="btn btn-lg btn-primary disabled">Change</button>
